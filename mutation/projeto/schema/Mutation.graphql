@@ -1,5 +1,16 @@
 type Mutation {
-  novoUsuario(nome: String, email: String, idade: Int): Usuario!
+  novoUsuario(
+    nome: String!,
+    email: String!,
+    idade: Int!
+  ): Usuario!
 
-  excluirUsuario(id: Int): Usuario
+  excluirUsuario(id: Int!): Usuario
+
+  alterarUsuario(
+    id: Int!,
+    nome: String,
+    email: String,
+    idade: Int
+  ): Usuario
 }

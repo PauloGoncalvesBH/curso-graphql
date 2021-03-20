@@ -29,5 +29,22 @@ module.exports = {
 
     const usuarioExcluido = usuarios.splice(indiceUsuario, 1)
     return usuarioExcluido ? usuarioExcluido[0] : null
+  },
+
+  alterarUsuario(_, args) {
+    const indiceUsuario = usuarios
+      .findIndex(u => u.id === args.id)
+
+    const usuarioNaoEncontrado = indiceUsuario < 0
+    if (usuarioNaoEncontrado) return null
+
+    const usuario = {
+      ...usuarios[indiceUsuario],
+      ...args
+    }
+
+    usuarios.splice(indiceUsuario, 1, usuario)
+    return usuario
+
   }
 }
