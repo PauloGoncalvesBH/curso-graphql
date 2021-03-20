@@ -18,5 +18,16 @@ module.exports = {
     }
     usuarios.push(novo)
     return novo
+  },
+
+  excluirUsuario(_, { id }) {
+    const indiceUsuario = usuarios
+      .findIndex(u => u.id === id)
+
+    const usuarioNaoEncontrado = indiceUsuario < 0
+    if (usuarioNaoEncontrado) return null
+
+    const usuarioExcluido = usuarios.splice(indiceUsuario, 1)
+    return usuarioExcluido ? usuarioExcluido[0] : null
   }
 }
