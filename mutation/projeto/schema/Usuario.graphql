@@ -1,7 +1,4 @@
-type Perfil {
-  id: Int
-  nome: String
-}
+#import Perfil from 'Perfil.graphql'
 
 enum UsuarioStatus {
   ATIVO
@@ -28,3 +25,7 @@ input UsuarioFiltro {
   id: Int
   email: String
 }
+
+# input PerfilFiltro {
+#   id: Int
+# }
